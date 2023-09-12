@@ -24,23 +24,35 @@ print(f"Требуется перевернуть {tails} монет с Решк
 # Он называет сумму этих чисел S и их произведение P. Помогите Кате отгадать задуманные Петей числа.
 # Пример --- 7, 10 -> 2, 5 (2 + 5 == 7; 2 * 5 == 10)
 
-x = int(input("Вы петя! Вводите число: x "))
-y = int(input("Вы также Петя вводите число y"))
-
+x = random.randint(1,1000)
+y = random.randint(1,1000)
 s = x + y
 p = x * y
+print(f"Cумма 1-ого числа = {s}")
+print(f"Произведение 2-ого числа = {p}")
 x_1 = s*s
 x_2 = p * 4
 discrmt = x_1 - x_2
 root = int(math.sqrt(discrmt))
-
 result_x = int((s + root) / 2)
 result_y = int((s - root) / 2)
-print(f"Загаданный x={result_x}")
-print(f"Загаданный y={result_y}")
-
-
-
+try_end = 3
+while try_end !=0:
+    quest = input("Чему равен x?")
+    quest_1 = input("Чему равен y?")
+    try_end = try_end - 1
+    if try_end > 0:
+        print("Думай лучше")
+        print(f"У вас осталось {try_end} попыток")
+    if quest == x and quest_1 == y:
+        print("УГАДАЛ ТЫ УМНИЧКА")
+        print(f"Загаданный x={result_x}")
+        print(f"Загаданный y={result_y}")
+    if quest !=x and quest_1 !=y and try_end==0:
+        print("Не угадал! >_<")
+        print(f"Загаданный x={result_x}")
+        print(f"Загаданный y={result_y}")
+        
 #Требуется вывести все целые степени двойки (т.е. числа вида 2k), не превосходящие числа N.
 #50 -> 1, 2, 4, 8, 16, 32
 
@@ -52,4 +64,5 @@ while dot <= n:
     result_numb.append(dot)
     dot *= 2
 print(result_numb)
+    
     
